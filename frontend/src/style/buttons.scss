@@ -1,0 +1,30 @@
+@import "./constants.scss";
+
+.icon-button {
+    background: none;
+    border: none;
+    height: 30px;
+    width: 30px;
+    padding: 0;
+    border-radius: 50%;
+}
+
+.icon-button:hover {
+    background: var(--off-white);
+}
+
+.text-button {
+    @extend .base-font;
+    font-size: 14px;
+    color: var(--white);
+    background: var(--moment-pink);
+    border-color: var(--white);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 6px;
+    padding: 4px 15px;
+}
+
+.text-button:hover {
+    background: var(--moment-pink-active);
+}

@@ -1,0 +1,11 @@
+@import "./constants.scss";
+
+.base-font {
+    font-family: Arial, sans-serif;
+}
+
+.label {
+    @extend .base-font;
+    font-size: 16px;
+    color: var(--moment-blue);
+}
