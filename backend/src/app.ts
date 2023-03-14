@@ -8,7 +8,7 @@ const app = express();
 
 dotenv.config();
 
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '5mb'}));
 
 connectToDatabase()
   .then(() => {
