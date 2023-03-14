@@ -15,7 +15,7 @@ batteriesRouter.use(express.json());
 /**
  * @route GET /api/v1/batteries/:batteryId/voltage_readings
  * 
- * @desc Retreive an array of battery voltage readings
+ * Retreive an array of battery voltage readings
  * 
  * @param batteryId Battery ID
  * @param startDate Start date query filter
@@ -51,7 +51,7 @@ batteriesRouter.get("/:batteryId/voltage_readings", async (req: Request, res: Re
 /**
  * @route POST /api/v1/batteries/:batteryId/voltage_readings
  * 
- * @desc Upload battery voltage readings
+ * Upload battery voltage readings
  * 
  * @param batteryId Battery ID
  * @param voltageReadingRequest An array of voltages and timestamps

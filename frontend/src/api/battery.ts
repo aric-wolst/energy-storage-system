@@ -5,10 +5,9 @@ const API_URL = 'http://localhost:8081/api/v1/';
 
 class BatteryAPI {
     /**
-     * Upload batteey voltage readings
+     * Upload battery voltage readings
      * 
      * @param batteryId ID of the battery
-     * @returns Upload status
      */
     async uploadBatteryVoltageReadings(batteryId: string): Promise<void> {
         const currentDate: Date = new Date();
@@ -34,16 +33,6 @@ class BatteryAPI {
                 voltage += 0.01;
 
                 if (voltage > 5) {
-                    // const data = {
-                    //     batteryVoltageReadings: voltageReadings,
-                    // }
-            
-                    // await axios.post(API_URL + `batteries/${batteryId}/voltage_readings`,
-                    //     data,
-                    // );
-
-                    // voltageReadings = [];
-
                     voltage = 4.99
                     incrementVoltage = false;
                 }
@@ -51,16 +40,6 @@ class BatteryAPI {
                 voltage -= 0.01;
 
                 if (voltage < 0) {
-                    // const data = {
-                    //     batteryVoltageReadings: voltageReadings,
-                    // }
-            
-                    // await axios.post(API_URL + `batteries/${batteryId}/voltage_readings`,
-                    //     data,
-                    // );
-
-                    // voltageReadings = [];
-
                     voltage = 0.01
                     incrementVoltage = true;
                 }
@@ -83,7 +62,6 @@ class BatteryAPI {
      * 
      * @param batteryId ID of the battery
      * @param startDate Start date filter
-     * @returns List of battery voltage readings
      */
     async getBatteryVoltageReadings(batteryId: string, startDate: Date): Promise<AxiosResponse<any, any>> {
         const res = await axios

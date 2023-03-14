@@ -27,6 +27,9 @@ const BatteryVoltageGraph = ({
      */
     const [batteryVoltageReadings, setBatteryVoltageReadings] = useState<IBatteryVoltageReadings[]>([]);
 
+    /**
+     * The time range filter
+     */
     const [dateFilter, setDateFilter] = useState<string>("12h");
 
     /**
@@ -56,6 +59,13 @@ const BatteryVoltageGraph = ({
     }, [batteryId, dateFilter]);
 
     /**
+     * On page render, filter update or batteryId update, fetch battery voltage readings
+     */
+    useEffect(() => {    
+        fetchBatteryVoltageReadings();
+    }, [dateFilter, batteryId, fetchBatteryVoltageReadings]);
+
+    /**
      * Upload voltage readings for the battery
      */
     const uploadBatteryVoltageReadings = (async(): Promise<void> => {
@@ -63,14 +73,6 @@ const BatteryVoltageGraph = ({
 
         await fetchBatteryVoltageReadings();
     });
-
-
-    /**
-     * On page render fetch battery voltage readings
-     */
-    useEffect(() => {    
-        fetchBatteryVoltageReadings();
-    }, [dateFilter, batteryId, fetchBatteryVoltageReadings]);
 
     /**
      * Date filter options

@@ -5,12 +5,12 @@ import { BatteryVoltageReadingsUploadRequest } from "../requests/batteryVoltageR
 
 class BatteriesService {
   /**
-     * @desc Retreive an array of battery voltage readings
-     * 
-     * @param batteryId Battery ID
-     * @param startDate Start date query filter
-     * @param endDate End date query filter
-     */
+   * Retreive an array of battery voltage readings
+   * 
+   * @param batteryId Battery ID
+   * @param startDate Start date query filter
+   * @param endDate End date query filter
+   */
   public async getVoltageReadings(
     batteryId: ObjectId,
     startDate?: Date,
@@ -50,11 +50,11 @@ class BatteriesService {
   }
 
   /**
-     * @desc Upload battery voltage readings
-     * 
-     * @param batteryId Battery ID
-     * @param uploadRequest An array of voltages and timestamps
-     */
+   * Upload battery voltage readings
+   * 
+   * @param batteryId Battery ID
+   * @param uploadRequest An array of voltages and timestamps
+   */
   public async uploadVoltageReadings(
     batteryId: ObjectId,
     uploadRequest: BatteryVoltageReadingsUploadRequest,
