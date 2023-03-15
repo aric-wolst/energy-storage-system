@@ -8,6 +8,7 @@ import {
   Title,
   Tooltip,
   Legend,
+  ChartOptions,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import BatteryService from "../api/battery";
@@ -116,12 +117,22 @@ const BatteryVoltageGraph = ({
     /**
      * Chart options
      */
-    const chartOptions = {
+    const chartOptions: ChartOptions<"line"> = {
         responsive: true,
         plugins: {
             title: {
             display: true,
             text: "Battery Voltage Readings",
+            },
+        },
+        scales: {
+            x: {
+                ticks: {
+                    autoSkip: true,
+                    maxTicksLimit: 20,
+                    minRotation: 60,
+                    maxRotation: 75,
+                },
             },
         },
     };
@@ -130,7 +141,7 @@ const BatteryVoltageGraph = ({
      * Chart data
      */
     const chartData = {
-        labels: batteryVoltageReadings.map((voltageReading) => voltageReading.timestamp.toString()),
+        labels: batteryVoltageReadings.map((voltageReading) => voltageReading.timestamp),
         datasets: [
           {
             label: `Battery ID: ${batteryId}`,
